@@ -1,5 +1,5 @@
-# Course: Getting and Cleaning Data
 # Coursera
+# Course: Getting and Cleaning Data
 # Author: Grigoriy Shmigol
 
 # Merges the training and the test sets to create one data set.
