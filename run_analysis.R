@@ -28,9 +28,10 @@ download.file(data_url, file.path(local_path, "UCI_HAR_Dataset.zip"))
 # extract the content
 unzip(zipfile = "UCI_HAR_Dataset.zip")
 
+
 # Load activity labels
 activity_labels <- fread(file.path(local_path_unziped, "/activity_labels.txt")
-                        , col.names = c("classLabels", "activityName"))
+                         , col.names = c("classLabels", "activityName"))
 
 # Load features
 features <- fread(file.path(local_path_unziped,"/features.txt")
@@ -69,8 +70,8 @@ combined <- rbind(train, test)
 
 # Convert classLabels to activityName
 combined[["Activity"]] <- factor(combined[, Activity]
-                              , levels = activity_labels[["classLabels"]]
-                              , labels = activity_labels[["activityName"]])
+                                 , levels = activity_labels[["classLabels"]]
+                                 , labels = activity_labels[["activityName"]])
 
 combined[["SubjectNum"]] <- as.factor(combined[, SubjectNum])
 combined <- reshape2::melt(data = combined, id = c("SubjectNum", "Activity"))
